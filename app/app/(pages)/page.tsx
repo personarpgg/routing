@@ -1,15 +1,26 @@
 import header from "../header/page";
-import Image from "@/public/11.png";
+import Link from "next/link";
+import Test from "../Test/page";
+
+
+// import Test from "../Test/page";
 
 
 export default function Home() {
+
+
+
   return (
     <>
-    <div>
-    이미지 표시 영역
+      {/* <Link href={Test}>테스트 페이지로 이동</Link> */}
+      <Link href="Test" className="block mx-auto mt-4">
+        <div className="bg-red, border shadow-orange-900">
+        대전
+        </div>
+      </Link>
 
-    </div>
-    <img src="/app/public/11.png/" alt="이미지 표시 테스트" />
+      <img src="11.png/" alt="지도 이미지 표시" />
+
     </>
 
   );
