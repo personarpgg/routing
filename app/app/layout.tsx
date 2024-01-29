@@ -1,5 +1,3 @@
-"useEffect"
-
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -8,7 +6,7 @@ import Header from "./header/page";
 import Footer from "./footer/page";
 
 import Test from "./Test/page";
-import Test2 from "./Test2/page"
+// import Test2 from "./Test2/page"
 
 import Link from "next/link";
 
@@ -22,7 +20,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
+  return (  
     <html lang="ko">
       <body className="flex flex-col justify-between h-screen w-screen overflow-auto" >
       <Header/>

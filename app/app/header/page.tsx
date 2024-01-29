@@ -3,8 +3,9 @@ import Image from "next/image";
 export default function Header() {
   return (
     <>
-    헤더
-    
+    <div className="bg-black">
+      헤더
+    </div>
     </>
   );
 }
