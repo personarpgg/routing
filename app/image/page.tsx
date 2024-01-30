@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 
-export default function Test() {
+export default function Image() {
   return (
     <>
     <img src="/app/public/11.png/" alt="이미지 표시 테스트" />

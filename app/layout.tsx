@@ -27,8 +27,6 @@ export default function RootLayout({
 
         {children}
 
-        {/* 아예 페이지 이동 */}
-        <Link href="{Test}" >이동한다!</Link>
 
         {/* 페이지 내에서 이동 */}
         {/* <button onClick={Test2}>페이지 내 이동</button> */}
