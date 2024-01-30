@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Test() {
+export default function map_main() {
   return (
     <>
     테스트 페이지

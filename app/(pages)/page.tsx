@@ -1,27 +1,23 @@
-import header from "../header/page";
 import Link from "next/link";
-import Test from "../Test/page";
-
-
-// import Test from "../Test/page";
-
 
 export default function Home() {
-
-
-
   return (
-    <>
-      {/* <Link href={Test}>테스트 페이지로 이동</Link> */}
-      <Link href="Test" className="block mx-auto mt-4">
-        <div className="bg-red, border shadow-orange-900">
-        대전
+    <div className="flex flex-col items-center justify-center h-screen">
+
+      <div className="relative">
+        <img
+          src="/map.png"
+          alt="지도 이미지 표시"
+          className="w-220 h-250 md:w-full md:h-auto"
+        />
+        <div className="absolute top-40 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <Link href="/map_main" className="block mx-auto mt-3">
+            <div className="bg-red-500 border shadow-lg p-1 text-white cursor-pointer">
+              대전
+            </div>
+          </Link>
         </div>
-      </Link>
-
-      <img src="11.png/" alt="지도 이미지 표시" />
-
-    </>
-
+      </div>
+    </div>
   );
 }
