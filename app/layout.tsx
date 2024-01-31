@@ -3,9 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css"; //나중에 사용 할지 모르니 일단 선언
 
 import Header from "./header/page"; //헤더
-import Footer from "./footer/page"; //푸터
+import Footer from "./components/footer/page"; //푸터
 
-import Test from "./map_main/page";
+import Test from "./(pages)/map_main/page";
 // import Test2 from "./Test2/page"
 
 import Link from "next/link"; //링크
@@ -31,8 +31,6 @@ export default function RootLayout({
         {/* 페이지 내에서 이동 */}
         {/* <button onClick={Test2}>페이지 내 이동</button> */}
 
-
-        
 
       <Footer/>
       

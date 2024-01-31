@@ -7,11 +7,11 @@ import Header from "../header/page";
 
 export default function Home() {
   const [selectedRegion, setSelectedRegion] = useState("");
+  
 
   return (
     <div className="flex flex-col items-center justify-center h-screen relative">
-      {/* Header 컴포넌트에 선택된 지역 정보 전달 */}
-      <Header selectedRegion={selectedRegion} />
+
       <div className="absolute">
         <img
           src="/map.png"
@@ -58,6 +58,10 @@ export default function Home() {
             </div>
           </Link>
         </div>
+      </div>
+      {/* Header 컴포넌트에 선택된 지역 정보 전달 */}
+      <div className="absolute top-10 left-10">
+      <Header selectedRegion={selectedRegion} />
       </div>
     </div>
   );
