@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css"; //나중에 사용 할지 모르니 일단 선언
 
-import Header from "./header/page"; //헤더
+import Header from "./components/header/page";
 import Footer from "./components/footer/page"; //푸터
 
 import Test from "./(pages)/map_main/page";

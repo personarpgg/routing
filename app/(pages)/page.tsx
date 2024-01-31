@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import Header from "../header/page";
+import Header from "../components/header/page";
 
 export default function Home() {
   const [selectedRegion, setSelectedRegion] = useState("");
