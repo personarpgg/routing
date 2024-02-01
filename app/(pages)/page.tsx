@@ -50,10 +50,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 헤더는 모든 버전에서 공통으로 표시 */}
-      <div className="absolute top-10 left-10">
-        <Header selectedRegion={selectedRegion} />
-      </div>
+      <Header selectedRegion={selectedRegion} /> {/* header로 넘기는 부분 */}
     </div>
   );
 }
