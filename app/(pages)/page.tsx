@@ -1,67 +1,58 @@
 // page.tsx
-"use client"
+"use client";
 
-import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/header/page";
+import MobileView from "../components/MobileView/MobileView";
+import PCView from "../components/PCView/PCView";
+import { useSearchParams } from "next/navigation";
 
 export default function Home() {
   const [selectedRegion, setSelectedRegion] = useState("");
-  
+  const searchParams = useSearchParams();
+
+  const handleRegionClick = async (region: string) => {
+    setSelectedRegion(region);
+    try {
+      window.location.href = `/map_main?region=${region}`;
+    } catch (error) {
+      console.error("Error pushing to /map_main:", error);
+    }
+  };
+
+  useEffect(() => {
+    // 클라이언트 사이드에서 실행되는 로직 추가
+  }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen relative">
+    <div className="relative">
+      {/* 이미지를 가져와서 정 가운데에 고정 */}
+      <img
+        src="/map.png"  // public 폴더 내의 이미지 경로
+        alt="지도 이미지 표시"
+        style={{ 
+          width: "550px", 
+          height: "520px", 
+          margin: "auto",
+          display: "block",
+        }}
+        className="block"
+      />
 
-      <div className="absolute">
-        <img
-          src="/map.png"
-          alt="지도 이미지 표시"
-          style={{ width: "550px", height: "520px" }}
-        />
-        {/* 서울 */}
-        <div className="absolute top-20 left-52">
-          <Link href="/map_main" onClick={() => setSelectedRegion("서울")}>
-            <div className="bg-red-500 border shadow-lg p-1 text-white cursor-pointer">
-              서울
-            </div>
-          </Link>
+      {/* 요소들을 동일한 부모 요소에 넣고 위치 조절 */}
+      <div className="absolute top-0 left-0">
+        {/* 모바일 버전과 PC 버전을 미디어 쿼리로 분기하여 렌더링 */}
+        <div className="sm:hidden">
+          <MobileView selectedRegion={selectedRegion} handleRegionClick={handleRegionClick} />
         </div>
-        {/* 대전 */}
-        <div className="absolute top-52 left-64 transform -translate-x-1/2 -translate-y-1/2">
-          <Link href="/map_main" onClick={() => setSelectedRegion("대전")}>
-            <div className="bg-yellow-500 border shadow-lg p-1 text-white cursor-pointer">
-              대전
-            </div>
-          </Link>
-        </div>
-        {/* 대구 */}
-        <div className="absolute top-72 left-52">
-          <Link href="/map_main" onClick={() => setSelectedRegion("대구")}>
-            <div className="bg-green-500 border shadow-lg p-1 text-white cursor-pointer">
-              대구
-            </div>
-          </Link>
-        </div>
-        {/* 광주 */}
-        <div className="absolute top-72 left-52">
-          <Link href="/map_main" onClick={() => setSelectedRegion("광주")}>
-            <div className="bg-green-500 border shadow-lg p-1 text-white cursor-pointer">
-              광주
-            </div>
-          </Link>
-        </div>
-        {/* 부산 */}
-        <div className="absolute top-80 left-80">
-          <Link href="/map_main" onClick={() => setSelectedRegion("부산")}>
-            <div className="bg-blue-500 border shadow-lg p-1 text-white cursor-pointer">
-              부산
-            </div>
-          </Link>
+        <div className="hidden sm:block">
+          <PCView selectedRegion={selectedRegion} handleRegionClick={handleRegionClick} />
         </div>
       </div>
-      {/* Header 컴포넌트에 선택된 지역 정보 전달 */}
+
+      {/* 헤더는 모든 버전에서 공통으로 표시 */}
       <div className="absolute top-10 left-10">
-      <Header selectedRegion={selectedRegion} />
+        <Header selectedRegion={selectedRegion} />
       </div>
     </div>
   );
