@@ -3,8 +3,8 @@
 
 import { useState, useEffect } from "react";
 import Header from "../components/header/page";
-import MobileView from "../components/MobileView/MobileView";
-import PCView from "../components/PCView/PCView";
+import MobileView from "../cliant/MobileView/MobileView";
+import PCView from "../cliant/PCView/PCView";
 import { useSearchParams } from "next/navigation";
 
 export default function Home() {
